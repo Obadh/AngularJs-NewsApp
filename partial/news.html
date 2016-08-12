@@ -1,0 +1,40 @@
+<div class="news">
+  <nav class="blue lighten-1">
+  <div class="nav-wrapper container">
+    <a href="#" class="brand-logo">News App</a>
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a ng-click="myFilter = {}">All</a></li>
+      <li><a ng-click="myFilter = {section:'Business day'}">Business</a></li>
+      <li><a ng-click="myFilter = {section:'Technology'}">Technology</a></li>
+      <li><a ng-click="myFilter = {section:'Fashion & Style'}">Fashion & Style</a></li>
+      <li><a ng-click="myFilter = {section:'Health'}">Health</a></li>
+      <li><a ng-click="myFilter = {section:'Science'}">Science</a></li>
+      <li><a ng-click="myFilter = {section:'Sports'}">Sports</a></li>
+    </ul>
+  </div>
+</nav>
+<nav>
+  <div class="nav-wrapper">
+    <form>
+      <div center class="input-field">
+        <input id="search" type="text" data-ng-model="searching.title" required placeholder="Search...">
+        <label for="search"></label>
+      </div>
+    </form>
+  </div>
+</nav>
+  <ul class="large-block-grid-4 medium-block-grid-3 small-block-grid-2">
+    <li ng-repeat="tell in news | filter:searching | filter:myFilter">
+      <figure>
+        <img ng-src="{{tell.multimedia[3].url}}" alt="{{}}" />
+        <figcaption>
+          <span>{{tell.title}}</span>
+
+        </figcaption>
+      </figure>
+      <a id="bigBtn" href="#/single/{{news.indexOf(tell)}}" class="btn-mov button expand small">Read More</a>
+    </li>
+  </ul>
+
+</div> <!-- End news-->
